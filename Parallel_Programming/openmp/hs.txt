@@ -1,0 +1,33 @@
+    1  pwd
+    2  ls
+    3  mkdir pp
+    4  ls
+    5  cd pp
+    6  mkdir openmp
+    7  cd openmp/
+    8  ls
+    9  nano firstProg.c
+   10  ls
+   11  nano firstProg.c
+   12  ls
+   13  gcc firstProg.c -o firstProg.
+   14  gcc firstProg.c -o firstProg.Seq
+   15  nano firstProg.c
+   16  gcc firstProg.c -o firstProg.Seq
+   17  ./firstProg.Seq 
+   18  gcc firstProg.c -o test
+   19* 
+   20  ./test
+   21  firefox &
+   22  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   23  gcc -O2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   24  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   25  gcc -o2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   26  gcc -2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   27  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   28  gcc -0 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   29  gcc -o -fopenmp firstProgOpenmp.c -o firstProgOMP
+   30  gcc -O2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   31  passwd
+   32  export OMP_NUM_THREADS=1
+   33  history > hs.txt
