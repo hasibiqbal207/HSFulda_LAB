@@ -17,8 +17,9 @@ class LinClass(object):
   def loss(self, Y, T): 
     return 0.0 ;
 
+  # derivative of delta L
   def dLdb(self,Y,T):
-    return np.zeros(self.b.shape) ;
+    return -np.mean(Y-T, axis=0);
 
   # fill in your code here!
   def dLdW(self, X, Y, T):
@@ -26,6 +27,7 @@ class LinClass(object):
     
   # softmax: fill in your code here!
   def S(self,X):
+    
     return X ;
 
   # dummy model, fill in your code!
@@ -81,6 +83,5 @@ if __name__ == "__main__":
   print(lc.f(traind[0:10]).argmax(axis=1),trainl[0:10].argmax(axis=1))
       
       
-
 
 

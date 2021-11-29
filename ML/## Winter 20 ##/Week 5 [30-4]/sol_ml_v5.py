@@ -8,26 +8,14 @@ if __name__ == "__main__":
     with gzip.open("MNIST.pkl.gz") as f:
       data = pickle.load(f) ;
     traind = data['data_train'].reshape(-1,28,28) ;
-    trainl = data['labels_train'] ;  
-
-
-
-
-
-
-
-
-
-
-
-
+    trainl = data['labels_train'] ; 
+    
+    print('Train Data Shape ' + str(np.shape(traind)) + '& Test Data Shape ' + str(np.shape(trainl))) 
 
   if sys.argv[1] == "1a":
     means = traind.mean(axis=(1,2))
     plt.scatter(np.arange(0,traind.shape[0]),means);
     plt.show() ;
-
-
 
   if sys.argv[1] == "1b":
     means = traind.mean(axis=(1,2)) ; # (55000,)
@@ -64,6 +52,17 @@ if __name__ == "__main__":
     x2 = np.array([1,1,2]);
     print (f"S({x1})=",sm(x1)) ;
     print (f"S({x2})=",sm(x2)) ;
+
+  # Softmax that supports 2d array
+  if sys.argv[1] == "3_2d": 
+    def sm(x):
+      e = np.exp(x) ;
+      return e/e.sum() ;
+
+    x1 = np.array([[-1,-1,5], [1,1,2]]);
+
+    print (f"S({x1[0]})=",sm(x1[0])) ;
+    print (f"S({x1[1]})=",sm(x1[1])) ;
 
   if sys.argv[1] == "4": 
     def ce(y,t): # y is model output, t is target
