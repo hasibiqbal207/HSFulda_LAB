@@ -1,1 +1,0 @@
-# HSFulda_LAB

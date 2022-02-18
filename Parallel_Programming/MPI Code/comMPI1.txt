@@ -1,0 +1,109 @@
+Linux pc17 5.4.0-90-generic #101-Ubuntu SMP Fri Oct 15 20:00:55 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+    1  cd pp/openmp/
+    2  ls
+    3  cp firstProg.c firstProgTh.c
+    4  ls
+    5  nano firstProgTh.c 
+    6  cp firstProgTh.c firstProgOpenmp.c
+    7  nano firstProgOpenmp.c 
+    8  cp firstProgTh.c firstProgOpenmp.c
+    9  nano firstProgOpenmp.c 
+   10  pwd
+   11  ls
+   12  mkdir pp
+   13  ls
+   14  cd pp
+   15  mkdir openmp
+   16  cd openmp/
+   17  ls
+   18  nano firstProg.c
+   19  ls
+   20  nano firstProg.c
+   21  ls
+   22  gcc firstProg.c -o firstProg.
+   23  gcc firstProg.c -o firstProg.Seq
+   24  nano firstProg.c
+   25  gcc firstProg.c -o firstProg.Seq
+   26  ./firstProg.Seq 
+   27  gcc firstProg.c -o test
+   28  ./test
+   29  firefox &
+   30  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   31  gcc -O2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   32  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   33  gcc -o2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   34  gcc -2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   35  gcc -02 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   36  gcc -0 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   37  gcc -o -fopenmp firstProgOpenmp.c -o firstProgOMP
+   38  gcc -O2 -fopenmp firstProgOpenmp.c -o firstProgOMP
+   39  passwd
+   40  export OMP_NUM_THREADS=1
+   41  history > hs.txt
+   42  ls
+   43  nano hs.txt 
+   44  mkdir rakib
+   45  cd rakib/
+   46  nano test.c
+   47  ssh -Y pc12
+   48  ls
+   49  cd pp
+   50  ls
+   51  cd openmp/
+   52  ls
+   53  python --version
+   54  python3 -c 'import tensorflow as tf; print(tf.__version__)' 
+   55  python3
+   56  ssh -Y pc12
+   57  ls
+   58  cd pp
+   59  ls
+   60  cd open
+   61  cd openmp/
+   62  ls
+   63  sudo nano hs.txt 
+   64  nano hs.txt 
+   65  nano MPIHelloWorld.c
+   66  mpicc MPIHelloWorld.c -o MPIHelloWorld
+   67  ./MPIHelloWorld 
+   68  mpirun -n 4 ./MPIHelloWorld 
+   69  nano MPIHelloWorld.c
+   70  mpicc MPIHelloWorld.c -o MPIHelloWorld
+   71  mpirun -n 4 ./MPIHelloWorld 
+   72  nano MPIHelloWorld.c
+   73  mpirun -n 16 ./MPIHelloWorld 
+   74  mpirun -n 8 ./MPIHelloWorld 
+   75  mpirun -n 16 --oversubscribe ./MPIHelloWorld 
+   76  nano machines
+   77  for((x=1;x<26;x++)) ; doecho pc$x >> ; done
+   78  for((x=1;x<26;x++)) ; do echo pc$x >> ; done
+   79  for((x=1;x<26;x++) ; do echo pc$x >> ; done)
+   80  for((x=1;x<26;x++) ; do echo pc$x >> ; done);
+   81  mpirun -n 16 --machinefile machines ./MPIHelloWorld
+   82  for((x=1;x<26;x++)) ; do echo pc$x >> ; done
+   83  for((x=1;x<26;x++)) ; do echo pc$x >> done exit; quit() :q
+   84  for((x=1;x<26;x++)) ; do echo pc$x >> machines ; done
+   85  nano machines
+   86  mpirun -n 16 --machinefile machines ./MPIHelloWorld
+   87  mpirun -n 26 --machinefile machines ./MPIHelloWorld
+   88  nano MPIHelloWorld.c
+   89  mpicc MPIHelloWorld.c -o MPIHelloWorld
+   90  nano MPIHelloWorld.c
+   91  mpicc MPIHelloWorld.c -o MPIHelloWorld
+   92  mpirun -n 26 --machinefile machines ./MPIHelloWorld
+   93  nano MPIHelloWorld.c
+   94  cp MPIHelloWorld.c MPICommProg.c
+   95  nano MPICommProg.c 
+   96  mpicc MPICommProg.c -o MPICommProg
+   97  mpirun -n 512 --oversubscribe --machinefile machines ./MPICommProg
+   98  nano MPICommProg.c 
+   99  mpirun -n 32 --oversubscribe --machinefile machines ./MPICommProg
+  100  nano MPICommProg.c 
+  101  cp MPICommProg.c MPICommProgEx.c
+  102  nano MPICommProgEx.c 
+  103  command >> ./command.txt
+  104  ls
+  105  nano command.txt 
+  106  uname -a >> ./command.txt
+  107  nano command.txt 
+  108  history >> ./command.txt
