@@ -27,12 +27,14 @@ int main(int argc, char** argv) {
 	} else {
 		//printf("%d of %d : Hello World. I am the slave\n", rank, size);
 		// A: Send "Hello from Rank" To Rank 0
-		// B: Send Rank and size as Integer
-		
+	// B: Send Rank and size as Integer
+		printf("Before: \n%s\n", buffer);	
 		bzero(buffer, 64);
-		sprintf(buffer, "Hello from Rank%d", rank);
+		printf("After: \n%s\n", buffer);
+		sprintf(buffer, "Hello from Rank = %d\n", rank);
+		printf("After Print: \n%s\n", buffer);
 		MPI_Send(buffer, 64, MPI_BYTE, 0, 221, MPI_COMM_WORLD);
-		
+
 	}
 	
 	MPI_Finalize();

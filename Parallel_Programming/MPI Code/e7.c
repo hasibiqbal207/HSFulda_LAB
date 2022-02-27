@@ -1,6 +1,8 @@
 #include<mpi.h>
 #include<stdio.h>
 #include<unistd.h>
+#include<math.h>
+#include<strings.h>
 
 // Compile: mpicc filename.c -o programName
 //   e.g  : mpicc MPIFirstProg.c -o MPIFirstProg
@@ -14,17 +16,18 @@ int main(int argc, char** argv){
 
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
-	
+
 	if(rank == 0) {
-		fprintf(stderr, "%d of %d: Hello World. I am the  \n", rank, size);
+		printf("%d of %d: Hello World. I am the  \n", rank, size);
 		// A: Receive from all the others
 		// B: Receive Rank and SIZE from all others
 	} else {
-		fprintf(stderr, "%d of %d: Hello World. I am the  \n", rank, size);
+		printf("%d of %d: Hello World. I am the  \n", rank, size);
 		char buffer[64];
 		bzero(buffer, 64);
 		sprintf(buffer, "Hello from %d", rank);
 
+		printf("%s\n", buffer);
 		// A: SEND "Hello from Rank"  to rank 0
 		// Send Rank & size as integer
 	}

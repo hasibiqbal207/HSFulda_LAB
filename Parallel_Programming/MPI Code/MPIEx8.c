@@ -21,13 +21,13 @@ int main(int argc, char** argv) {
 	MPI_File fh;
 	MPI_Datatype etype;
 	MPI_Datatype filetype;
-	MPI_Offet disp;
+	MPI_Offset disp;
 	MPI_Status status;
 	char buf;
 
 	MPI_Init(NULL, NULL);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	MPI_COMM_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
 
 	etype = MPI_CHAR;
 	ndims = 1;

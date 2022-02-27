@@ -13,12 +13,12 @@ int main (int argc, char** argv) {
 
 	#pragma omp parallel for schedule(runtime)
 	for(int i = 0; i < SIZE; i++) {
-		//double start = omp_get_wtime();
+//		double start = omp_get_wtime();
 		for(int j = 0; j < i; j++) {
 			work[i] = sqrt(work[i]);
 		}
-		double end = omp_get_wtime();
-		//printf("time: %lf\n", end-start);
+//		double end = omp_get_wtime();
+//		printf("time: %lf\n", end-start);
 	}
 
 	return 0;

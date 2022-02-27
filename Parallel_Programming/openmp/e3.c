@@ -6,12 +6,12 @@
 #include<stdio.h>
 #include<omp.h>
 
-#define SIZE 1024*1024*1024
+#define SIZE 1024
 
 int main(int argc, char** argv){
-	int A* = malloc(SIZE*sizeof(int));
-	int B* = malloc(SIZE*sizeof(int));
-	int C* = malloc(SIZE*sizeof(int));
+	int *A = malloc(SIZE*sizeof(int));
+	int *B = malloc(SIZE*sizeof(int));
+	int *C = malloc(SIZE*sizeof(int));
 
 	for(int i=0; i<SIZE; i++){
 		A[i] = i;
@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 		C[i] = 0;
 	}
 
-#pragma omp parallel for
+	#pragma omp parallel for
 	for(int i=0; i<SIZE; i++){
 		C[i] = A[i] + B[i];
 	}

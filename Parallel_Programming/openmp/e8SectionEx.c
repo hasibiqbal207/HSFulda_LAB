@@ -1,10 +1,11 @@
 // gcc -O2 -fopenmp SectionEx.c -o SectionEx -lm
 
+#include <stdio.h>
 #include <omp.h>
 #include <stdlib.h>
 #include <math.h>
 
-#define SIZE 1000000
+#define SIZE 1000
 
 int main(int argc, char** argv) {
 	double *A = (double*) malloc(SIZE*sizeof(double));
@@ -41,12 +42,16 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	int i;
+	int k;
+	long double sum = 0;
 
-#pragma omp parallel for private(i) shared(A, B, C, D)
-	for (i = 0; i < SIZE; i++) {
-		D[i] = A[i] + B[i] + C[i];
-	} 
+#pragma omp parallel for shared(k, A, B, C, D) reduction(+:sum)
+	for (k = 0; k < SIZE; k++) {
+		D[k] = A[k] + B[k] + C[k];
+		sum += D[k];
+		printf("%lE %Lf\n", A[k], sum);
+	}
 
+	printf("%lf %Lf\n", D[100], sum);
 	return 0;
 }

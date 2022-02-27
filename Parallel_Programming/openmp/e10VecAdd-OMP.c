@@ -3,7 +3,7 @@
 #ifdef _OPENMP
 #include <omp.h>
 #endif
-#define SIZE 1000000
+#define SIZE 1024*1024*1024
 
 float *A, *B, *C;
 

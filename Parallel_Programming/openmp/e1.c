@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-#define SIZE 1024
+#define SIZE 1024*1024*1024
 
 int main(int argc, char** argv){
 	int A[SIZE];
@@ -15,7 +15,6 @@ int main(int argc, char** argv){
 		B[i] = SIZE - i;
 		C[i] = 0;
 	}
-
 	for(int i=0; i<SIZE; i++){
 		C[i] = A[i] + B[i];
 	}

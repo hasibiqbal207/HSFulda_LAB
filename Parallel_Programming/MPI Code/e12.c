@@ -26,12 +26,12 @@ int main(int argc, char** argv) {
         if(rank==0){    
 				MPI_Ssend(&sum, 1, MPI_INT, right, 1234, MPI_COMM_WORLD);
 				MPI_Recv(&buffer, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-				sum = buffer + rank;
+				sum += buffer;
 				MPI_Ssend(&sum, 1, MPI_INT, right, 1234, MPI_COMM_WORLD);
 				MPI_Recv(&sum, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         } else {
 				MPI_Recv(&buffer, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-				sum += buffer;
+				sum = buffer + rank;
 				MPI_Ssend(&sum, 1, MPI_INT, right, 1234, MPI_COMM_WORLD);
 				MPI_Recv(&sum, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 				MPI_Ssend(&sum, 1, MPI_INT, right, 1234, MPI_COMM_WORLD);

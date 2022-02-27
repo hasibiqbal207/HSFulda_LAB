@@ -28,11 +28,11 @@ int main(int argc, char** argv) {
                         for(int i=0; i<REPEATATION; i++){
 							MPI_Ssend(msg, s, MPI_BYTE, 1, 1234, MPI_COMM_WORLD);
 							MPI_Recv(msg, s, MPI_BYTE, 1, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-                }
-				end = MPI_Wtime();
-				printf("Latency: %lf\n", ((end-start)/REPEATATION)/2.0);
-                printf("Bandwidth: %lf\n", s*((end-start)/REPEATATION)/2.0);
-		
+	                }
+			end = MPI_Wtime();
+			printf("Data Transferred: %d\n", s);
+			printf("Latency: %lf\n", ((end-start)/REPEATATION)/2.0);
+        	        printf("Bandwidth: %lf\n", s*((end-start)/REPEATATION)/2.0);
                 }
         } else if(rank == 1){
                 MPI_Recv(msg, 1, MPI_BYTE, 0, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);

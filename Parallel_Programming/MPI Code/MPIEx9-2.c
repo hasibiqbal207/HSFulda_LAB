@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <strings.h>
+#include <mpi.h>
 
 int main(int argc, char** argv) {
   typedef struct {
@@ -22,7 +23,7 @@ int main(int argc, char** argv) {
   int aob[2];
   MPI_Aint aod[2];
   aot[0] = MPI_SHORT;
-  aot[0] = MPI_INT;
+  aot[1] = MPI_INT;
   aob[0] = 1;
   aob[1] = 1;
   aod[0] = 0;
@@ -49,7 +50,7 @@ int main(int argc, char** argv) {
   MPI_Request req;
 
   // send rank and size in a derived datatype arounf and sum the ranks up
-  for(int i = 0; i < buf.size, i++){
+  for(int i = 0; i < buf.size; i++){
     MPI_Issend(&sbuffer, 1, ourBufferType, right, 1234, MPI_COMM_WORLD, &req);
     MPI_Recv(&rbuffer, 1, ourBufferType, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Wait(&req, MPI_STATUS_IGNORE);

@@ -4,7 +4,8 @@
 
 #define f(A) (4.0/(1.0+A*A))
 
-const int n = 1000000000;
+//const int n = 1000000000;
+const int n = 100;
 
 int main(int argc, char* argv[]) {
 	int i;

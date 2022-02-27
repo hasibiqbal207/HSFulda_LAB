@@ -20,20 +20,17 @@ int main(int argc, char** argv) {
 
 	int numberOfZero = 0;
 
-#pragma omp parallel default(none) shared(size, matrix, numberOfZero)
+#pragma omp parallel default(none) shared(size, matrix, numberOfZero) num_threads(1)
 {
-	#pragma omp for
+//	#pragma omp for
 	for(int i=0; i<size; i++){
 		for(int j=0; j<size; j++){
 			if(matrix[i][j] == 0){
-#pragma omp critical
-				numberOfZero++;
+				#pragma omp single 
+				{numberOfZero++;}
 			}
 	}}
 }
 	printf("Number of Zeros %d\n", numberOfZero);
-	
-
 	return 0;
 }
-

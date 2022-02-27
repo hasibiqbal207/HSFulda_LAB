@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
 		MPI_Recv (&sum, 1, MPI_INT, left, 123, MPI_COMM_WORLD, &stat);
 		MPI_Ssend(&sum, 1, MPI_INT, right, 123, MPI_COMM_WORLD);
 	}
+
 	printf("rank: %d sum: %d\n", rank, sum);
 
 	MPI_Finalize();

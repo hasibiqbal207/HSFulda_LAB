@@ -8,27 +8,30 @@ int main(int argc, char** argv) {
 #pragma omp parallel num_threads(2)
 	{
 	// #pragma omp single
+		int tid = omp_get_thread_num();
 		{
-			printf("E = ");
 			#pragma omp task
-			printf(" m ");
+			printf("E = %d ", tid);
 			#pragma omp task
-			printf(" c^2 ");
+			printf(" m %d ", tid);
+			#pragma omp task
+			printf(" c^2 %d ", tid);
 			#pragma omp taskwait
-			printf(" WOW ");
+			printf(" WOW %d ", tid);
 		}
 	}
 
 #pragma omp parallel num_threads(2)
 	{
+	int tid = omp_get_thread_num();
 	#pragma omp single
 		{
-			printf("\nE = ");
+			printf("\nE = %d ", tid);
 			#pragma omp task
-			printf(" m ");
+			printf(" m %d ", tid);
 			#pragma omp task
-			printf(" c^2 ");
-			printf(" WOW ");
+			printf(" c^2 %d ", tid);
+			printf(" WOW %d ", tid);
 		}
 	}
 	printf("\n");

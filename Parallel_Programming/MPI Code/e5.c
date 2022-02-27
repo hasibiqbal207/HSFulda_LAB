@@ -14,7 +14,7 @@ int main(int argc, char** argv){
 	// A
 
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	MPI_Comm_rank(MPI_COMM_WORLD, &size);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
 	int sum = 0;
 	int buffer;
 	int left = (rank + size -1) % size;

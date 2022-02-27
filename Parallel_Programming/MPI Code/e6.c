@@ -25,9 +25,10 @@ int main(int argc, char** argv){
 
 	for(int i=0; i<size; i++){
 		MPI_Issend(&sbuffer, 1, MPI_INT, right, 1234, MPI_COMM_WORLD, &req);
-		MPI_Recv(&rbuffer, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+		MPI_Irecv(&rbuffer, 1, MPI_INT, left, 1234, MPI_COMM_WORLD, &req);
 		MPI_Wait(&req, MPI_STATUS_IGNORE);
 		sum = sum + rbuffer;
+		printf("Local Index %d Sbuffer %d Rbuffer %d Sum %d\n", i, sbuffer, rbuffer, sum);
 		sbuffer = rbuffer;
 	}
 	printf("Rank %d Sum %d\n", rank, sum);
